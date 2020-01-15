@@ -219,6 +219,7 @@ pre {
 
 /*    HEADERS    */
 .sectionHeader {
+    max-width:100%;
     font-size: 5em;
     border-bottom: 4px solid currentColor;
     
