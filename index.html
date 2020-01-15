@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/flipboxes.css">
+    <link href="/fontawesome-free-5.12.0-web/css/all.min.css" rel="stylesheet"> <!--load all styles -->
+</head>
+<meta name="viewport" content="width=device-width">
+<body style="overflow-x: hidden;">
+
+<div class="splash">
+    <h class="splashHeader">Hi i'm Kevin Bergstrom.<br />I like to code.</h>
+    <div id="flipboxes" class="flipBoxes"></div>
+</div>
+
+<div class="navContainer">
+    <a class="navLink" href="#aboutMe">HOME</a>
+    <a class="navLink" href="#skills">SKILLS</a>
+    <a class="navLink" href="#tools">TOOLS</a>
+    <a class="navLink" href="#education">EDUCATION</a>
+    <a class="navLink" href="#projects">PROJECTS</a>
+    <a class="navLink" href="#contact">CONTACT ME</a>
+</div>
+
+<div id="aboutMe" class="whiteContainer">
+    <h class="sectionHeader">ABOUT ME</h>
+    <div class="aboutMe">
+        <p style="text-align:left;"><b>So what do I do?</b> I am an aspiring software developer 
+            with an interest in all things code. My passion for coding has taken me from creating games to creating websites. 
+            If you want to see some of my projects just click to view my <a href="#projects">portfolio</a>. You can also get
+            in contact with me <a href="#contact">here</a>.</p>
+        <p>Coder, Designer, Developer</p>
+        <a class="icon" href="https://github.com/KevinBergstrom"><i class="fab fa-github"></i></a>
+        <a class="icon" href="https://www.linkedin.com/in/kev-bergstrom/"><i class="fab fa-linkedin"></i></a>
+    </div>
+</div>
+
+<div id="skills" class="grayContainer">
+    <h class="sectionHeader">SKILLS</h>
+    <div id="skillCont" class="skills">
+    </div>
+</div>
+
+<div id="tools" class="whiteContainer">
+    <h class="sectionHeader">TOOLS</h>
+    <div class="tools">
+        <p>GIT</p>
+        <p>ECLIPSE</p>
+        <p>BASH</p>
+    </div>
+</div>
+
+<div>
+    <div class="bannerLeft"></div>
+    <div class="bannerRight"></div>
+    <div id="education" class="grayContainer">
+        <h class="sectionHeader">EDUCATION</h>
+        <div class="hex"></div>
+        <div class="education">
+            <h1>WASHINGTON STATE UNIVERSITY</h1>
+            <h3>BACHELOR OF SCIENCE IN COMPUTER SCIENCE</h3>
+            <h4>2019</h4>
+            <P>I studied computer science at Washington State University. This is where I learned and developed my skills as a programmer. I studied a wide variety of computer science topics including data structures, web development, and software engineering.</P>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="hexagons"></div>
+    <div id="projects" class="whiteContainer">
+        <h class="sectionHeader">PROJECTS</h>
+        <div class="projects">
+            <p>Here are some projects that I've worked on</p>
+            <div class="projectsContainer">
+                <a href="pages/stealTheRuby/strArticle.html">
+                    <img class="projectPic" src="pages/stealTheRuby/assets/icon.png">
+                </a>
+                <a href="pages/breakoutEX/bexArticle.html">
+                    <img class="projectPic" src="pages/breakoutEX/assets/icon.png">
+                </a>
+                <a href="pages/landmark/lmArticle.html">
+                    <div class="projectIconBox">
+                        <div class="bottomBox">
+                            <p style="z-index:2;">Landmark Search Engine</p>
+                        </div>
+                        <img src="pages/landmark/assets/map.png">
+                    </div>
+                </a>
+                <a href="pages/energyPredict/epArticle.html">
+                    <div class="projectIconBox">
+                        <div class="bottomBox">
+                            <p style="z-index:2;">Energy Forecast Predictor App</p>
+                        </div>
+                        <img src="pages/energyPredict/assets/screen1.png">
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="contact" class="gradientContainer">
+    <h class="whiteSectionHeader">CONTACT ME</h>
+    <div class="contactForm">
+        <form action="mail.php" method="POST">
+            <input maxlength="100" type="text" id="contactName" name="name" placeholder="Name">
+            <input maxlength="100" type="text" id="contactEmail" name="email" placeholder="Email Address">
+            <textarea maxlength="2000" id="contactMessage" name="message" placeholder="Message" style="height:200px"></textarea>
+            <input type="submit" value="SEND">
+        </form>
+    </div>
+    <div class="mountains"></div>
+</div>
+
+<!--
+
+    Nice view of the mountains, isn't it?
+
+-->
+
+<!-- JQuery -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<script src="js/main.js"></script>
+<script src="js/flipboxes.js"></script>
+
+</body>
+</html>
