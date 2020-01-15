@@ -61,6 +61,24 @@ html, body {
     
 }
 
+.skillsContainer {
+    max-width:100%;
+    text-align: left;
+    float:left;
+
+    padding:20px;
+}
+
+.tools {
+    font-size: var(--font-size-small);
+    width:900px;
+    max-width:90%;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .bordered {
     border-color: gray;
     border-style: solid;
@@ -154,6 +172,11 @@ pre {
     position:absolute;
     z-index: 3;
     pointer-events: none;
+
+    max-width:100%;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .bannerHeader {
@@ -255,13 +278,6 @@ pre {
     width:900px;
     max-width:90%;
     text-align: left;
-}
-
-.tools {
-    font-size: var(--font-size-small);
-    margin-top:40px;
-    width:900px;
-    max-width:90%;
 }
 
 .education {
