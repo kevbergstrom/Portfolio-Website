@@ -1,0 +1,29 @@
+.bannerImage {
+    
+    max-width:100%;
+    min-height:350px;
+    background-image: url(../../assets/hexagonTile.png);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.centerText {
+    text-align: center;
+}
+
+.navContainer {
+    background-color: black;
+    /*need to have float left?*/
+}
+
+p {
+    font-size: 2em;
+    text-align: left;
+}
+
+.articleSection {
+    width:900px;
+    max-width:90%;
+}
