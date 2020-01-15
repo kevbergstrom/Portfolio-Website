@@ -261,6 +261,11 @@ pre {
     max-width:90%;
 }
 
+.education h1, .education h3{
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
 .projects {
     font-size: 2em;
     /*fix the overflow when scrunching the window size*/
