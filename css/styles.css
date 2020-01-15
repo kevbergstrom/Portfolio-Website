@@ -11,6 +11,12 @@
     --main-bg-skills: rgb(0, 148, 255);
     --main-bg-projects: var(--main-bg-splash);
     --main-font-projects: white;
+
+    --font-size-tiny: 0.67em;
+    --font-size-input: 1.5em;
+    --font-size-small: 1.34em;
+    --font-size-medium: 3.35em;
+    --font-size-large: 4em;
 }
 
 textarea {
@@ -32,7 +38,7 @@ html, body {
     display: flex;
     justify-content: left;
     align-items: center;
-    font-size: 1em;
+    font-size: var(--font-size-tiny);
     
 }
 
@@ -91,7 +97,7 @@ pre {
 
 .itemDesc {
     width:95%;
-    font-size: 2em;
+    font-size: var(--font-size-small);
     text-align: left;
     margin-left: 5%;
 }
@@ -103,7 +109,7 @@ pre {
     border-width: 1px;
     border-color: gray;
     border-style: solid;
-    font-size:1em;
+    font-size: var(--font-size-tiny);
 }
 
 .rectHolder {
@@ -140,7 +146,7 @@ pre {
 
 .splashHeader {
     color:white;
-    font-size: 5em;
+    font-size: var(--font-size-medium);
     font-family: newFont;
     text-align: center;
     position:absolute;
@@ -150,7 +156,7 @@ pre {
 
 .bannerHeader {
     color:black;
-    font-size: 6em;
+    font-size: var(--font-size-large;
     font-family: newFont;
     text-align: center;
 }
@@ -174,7 +180,7 @@ pre {
     background-color: var(--main-bg-nav);
 
     font-family: newFont;
-    font-size: 2em;
+    font-size: var(--font-size-small);
     
     position: -webkit-sticky;
     position: sticky;
@@ -220,7 +226,7 @@ pre {
 /*    HEADERS    */
 .sectionHeader {
     max-width:90%;
-    font-size: 5em;
+    font-size: var(--font-size-medium);
     border-bottom: 4px solid currentColor;
     
     overflow-wrap: break-word;
@@ -229,7 +235,7 @@ pre {
 
 .whiteSectionHeader {
     color:white;
-    font-size: 5em;
+    font-size: var(--font-size-medium);
     border-bottom: 4px solid currentColor;
 }
 
@@ -238,11 +244,11 @@ pre {
     margin-top:100px;
     width:900px;
     max-width:90%;
-    font-size: 2em;
+    font-size: var(--font-size-small);
 }
 
 .skills {
-    font-size: 2em;
+    font-size: var(--font-size-small);
     margin-top:40px;
     width:900px;
     max-width:90%;
@@ -250,14 +256,14 @@ pre {
 }
 
 .tools {
-    font-size: 2em;
+    font-size: var(--font-size-small);
     margin-top:40px;
     width:900px;
     max-width:90%;
 }
 
 .education {
-    font-size: 2em;
+    font-size: var(--font-size-small);
     width:900px;
     max-width:90%;
 }
@@ -268,7 +274,7 @@ pre {
 }
 
 .projects {
-    font-size: 2em;
+    font-size: var(--font-size-small);
     /*fix the overflow when scrunching the window size*/
     z-index:1;
     max-width:100%;
@@ -341,7 +347,7 @@ input[type=text], textarea {
     /*also need to add font*/
 
     font-family: newFont;
-    font-size: 1.5em;
+    font-size: var(--font-size-input);
 }
 
 input[type=submit] {
@@ -350,7 +356,7 @@ input[type=submit] {
     /*also need to add font and change color/shape*/
 
     font-family: newFont;
-    font-size: 1.5em;
+    font-size: var(--font-size-input);
 
     resize:vertical;
 }
