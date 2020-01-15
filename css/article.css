@@ -2,7 +2,7 @@
     
     max-width:100%;
     min-height:350px;
-    background-image: url(../../assets/hexagonTile.png);
+    background-image: url('../../assets/hexagonTile.png');
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +19,7 @@
 }
 
 p {
-    font-size: 1.34em;
+    font-size: 1.5em;
     text-align: left;
 }
 
