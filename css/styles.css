@@ -156,7 +156,7 @@ pre {
 
 .bannerHeader {
     color:black;
-    font-size: var(--font-size-large;
+    font-size: var(--font-size-large);
     font-family: newFont;
     text-align: center;
 }
