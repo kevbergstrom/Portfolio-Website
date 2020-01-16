@@ -28,7 +28,8 @@
 /* ul does too*/
 
 p, h1, h2, h3, h4, h {
-    margin: var(--padding-text);
+    margin-top: var(--padding-text);
+    margin-bottom: var(--padding-text);
 
     /*overflow-wrap: break-word;
     word-wrap: break-word;*/
@@ -297,7 +298,8 @@ code {
 /*    CONTACT    */
 .contactForm {
     /*padding: 30px;*/
-    max-width:900px;
+    width:900px;
+    max-width:90%;
 }
 
 input[type=text], textarea {
@@ -311,20 +313,26 @@ input[type=text], textarea {
 
     font-family: newFont;
     font-size: var(--font-size-input);
+
+    border-style: none;
+    border-radius: 5px;
+    padding:5px;
 }
 
 input[type=submit] {
-   /* padding: 5px;
-    margin-top: 30px;*/
-    /*also need to add font and change color/shape*/
 
     margin-top:var(--padding-input);
     margin-bottom:var(--padding-input);
 
     font-family: newFont;
     font-size: var(--font-size-input);
+    background-color: white;
 
     resize:vertical;
+
+    border-radius: 5px;
+    border-style: none;
+    padding:5px;
 }
 
 /*    ART    */
