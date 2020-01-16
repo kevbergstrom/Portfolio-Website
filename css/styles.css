@@ -18,10 +18,10 @@
     --font-size-medium: 3.35em;
     --font-size-large: 4em;
 
-    --padding-cont: 15px;
-    --padding-text: 15px;
-    --padding-screenshot: 15px;
-    --padding-input: 15px;
+    --padding-cont: 30px;
+    --padding-text: 30px;
+    --padding-screenshot: 30px;
+    --padding-input: 30px;
 }
 
 /*p has a 1em margin*/
