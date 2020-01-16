@@ -17,6 +17,26 @@
     --font-size-small: 1.5em;
     --font-size-medium: 3.35em;
     --font-size-large: 4em;
+
+    --padding-cont: 15px;
+    --padding-text: 15px;
+    --padding-screenshot: 15px;
+    --padding-input: 15px;
+}
+
+/*p has a 1em margin*/
+/* ul does too*/
+
+p, h1, h2, h3, h4, h {
+    margin: var(--padding-text);
+
+    /*overflow-wrap: break-word;
+    word-wrap: break-word;*/
+}
+
+ul {
+    margin: var(--padding-text);
+    margin-bottom: 0px;
 }
 
 textarea {
@@ -33,44 +53,16 @@ html, body {
     word-wrap: break-word;
 }
 
-.skillBox {
-    width:100%;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    font-size: var(--font-size-tiny);
-    
-}
-
-/*
-.skillBox:hover {
-    
-}
-*/
-
-.skillBar {
-    height:100%;
-    background-color: var(--main-bg-skills);
-    text-align: right;
-    color:white;
-    vertical-align: middle;
-    padding:5px;
-    margin-top:-10px;
-    text-align:center;
-    border-radius: 25px;
-    
-}
-
 .skillsContainer {
     max-width:100%;
     text-align: left;
     float:left;
 
-    padding:20px;
+   /* padding:20px;*/
 }
 
 .tools {
-    font-size: var(--font-size-small);
+    /*font-size: var(--font-size-small);*/
     width:900px;
     max-width:90%;
 
@@ -97,52 +89,24 @@ pre {
     border-width: 1px;
 }
 
-
-/* should this be somewhere else?*/
-.itemImg {
-    width:32px;
-    height:32px;
-    padding:5px;
+code {
+    font-size:13px;
 }
 
-.brickImg {
-    width:98px;
-    height:32px;
-    margin:5px;
-    background-color: gray;
-    
-}
-
-.itemDesc {
-    width:95%;
-    font-size: var(--font-size-small);
-    text-align: left;
-    margin-left: 5%;
-}
-
-.overviewBox {
-    background-color: var(--main-bg-gray);
-    padding-left:10px;
-    border-radius: 5px;
-    border-width: 1px;
-    border-color: gray;
-    border-style: solid;
-    font-size: var(--font-size-tiny);
-}
 
 .rectHolder {
     height: 1em;
     width: 100%;
     background-color: rgb(196, 196, 196);
-    margin:24px;
-    padding-top: 10px;
+    /*margin:24px;
+    padding-top: 10px;*/
     border-radius: 25px;
 }
 
 .screenShot {
     max-width:100%;
-    margin-top:30px;
-    margin-bottom:30px;
+    margin-top: var(--padding-screenshot);
+    margin-bottom: var(--padding-screenshot);
 }
 
 .bannerDeco {
@@ -180,10 +144,14 @@ pre {
 }
 
 .bannerHeader {
+    max-width:100%;
     color:black;
     font-size: var(--font-size-large);
     font-family: newFont;
     text-align: center;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
 }
 
 .imageSplash {
@@ -223,6 +191,8 @@ pre {
     float:left;
 }
 
+
+/*TODO make these one*/
 .flexVertical {
     display: flex;
     justify-content: center;
@@ -232,11 +202,12 @@ pre {
 }
 
 .flexHorizontal {
-    padding-top:15px;
+    /*padding-top:15px;*/
     display: flex;
     justify-content: center;
     align-items: top;
     flex-direction: row;
+    max-width:100%;
 }
 
 .icon {
@@ -258,51 +229,23 @@ pre {
     word-wrap: break-word;
 }
 
-.whiteSectionHeader {
+.text-white {
     color:white;
-    font-size: var(--font-size-medium);
-    border-bottom: 4px solid currentColor;
 }
 
 /*    SECTIONS    */
-.aboutMe {
-    margin-top:40px;
+
+.section {
     width:900px;
     max-width:90%;
     font-size: var(--font-size-small);
-}
-
-.skills {
-    font-size: var(--font-size-small);
-    margin-top:40px;
-    width:900px;
-    max-width:90%;
-    text-align: left;
-}
-
-.education {
-    font-size: var(--font-size-small);
-    width:900px;
-    max-width:90%;
-}
-
-.education h1, .education h3{
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-}
-
-.projects {
-    font-size: var(--font-size-small);
-    /*fix the overflow when scrunching the window size*/
-    z-index:1;
-    max-width:100%;
 }
 
 /*    CONTAINERS    */
-.whiteContainer {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    background-color: rgb(255,255,255);
+
+.container {
+    padding-top: var(--padding-cont);
+    padding-bottom: var(--padding-cont);
     text-align: center;
     width:100%;
 
@@ -313,26 +256,22 @@ pre {
     flex-direction: column;
 
     font-family: newFont;
+
+    background-color: var(--main-bg-gray);
 }
 
-.grayContainer {
-    padding-top: 50px;
-    padding-bottom: 50px;
-    background-color: var(--main-bg-gray);
-    text-align: center;
-    width:100%;
+/* only effects the odd containers*/
+/*div.container>div:nth-of-type(odd){
+    background-color: white;
+}*/
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
 
-    font-family: newFont;
+.container:nth-of-type(odd){
+    background-color: white;
 }
 
 .gradientContainer {
-    padding-top: 50px;
+    padding-top: var(--padding-cont);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -350,28 +289,37 @@ pre {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+
+    padding-top:var(--padding-cont);
+    padding-bottom:var(--padding-cont);
 }
 
 /*    CONTACT    */
 .contactForm {
-    padding: 30px;
+    /*padding: 30px;*/
     max-width:900px;
 }
 
 input[type=text], textarea {
-    padding:5px;
-    margin-top:30px;
+    /*padding:5px;
+    margin-top:30px;*/
     width:100%;
     /*also need to add font*/
+
+    margin-top:var(--padding-input);
+    margin-bottom:var(--padding-input);
 
     font-family: newFont;
     font-size: var(--font-size-input);
 }
 
 input[type=submit] {
-    padding: 5px;
-    margin-top: 30px;
+   /* padding: 5px;
+    margin-top: 30px;*/
     /*also need to add font and change color/shape*/
+
+    margin-top:var(--padding-input);
+    margin-bottom:var(--padding-input);
 
     font-family: newFont;
     font-size: var(--font-size-input);
@@ -380,6 +328,34 @@ input[type=submit] {
 }
 
 /*    ART    */
+
+.itemImg {
+    width:32px;
+    height:32px;
+    padding:5px;
+    margin:var(--padding-text);
+}
+
+.brickImg {
+    width:98px;
+    height:32px;
+    margin:5px;
+    background-color: gray;
+    margin:var(--padding-text);
+}
+
+.itemDesc {
+    width:95%;
+    text-align: left;
+
+    /*margin-left: 5%;*/
+    margin-top:var(--padding-text);
+    margin-bottom:var(--padding-text);
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+}
 
 .projectPic {
     border-radius: 35px;
@@ -400,9 +376,9 @@ input[type=submit] {
     text-align: center;
     flex-direction: column;
     background-color: var(--main-bg-projects);
-    padding:10px;
+    /*padding:10px;*/
     float:left;
-    margin:10px;
+    /*margin:10px;*/
     color:var(--main-font-projects);
     transition: transform .3s;
 }
@@ -454,18 +430,54 @@ input[type=submit] {
     
 }
 
+
+/*cold storage*/
+
+/*
+.overviewBox {
+    background-color: var(--main-bg-gray);
+    padding-left:10px;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: gray;
+    border-style: solid;
+    font-size: var(--font-size-tiny);
+}*/
+
+/*.skillBox {
+    width:100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: var(--font-size-tiny);
+    
+}
+
+.skillBar {
+    height:100%;
+    background-color: var(--main-bg-skills);
+    text-align: right;
+    color:white;
+    vertical-align: middle;
+    padding:5px;
+    margin-top:-10px;
+    text-align:center;
+    border-radius: 25px;
+    
+}
+
 .bannerLeft {
     background-image:url(../assets/bannerLeft.png);
     width:338px;
     height:395px;
     position:absolute;
-    /* Firefox */
+    
     left: -moz-calc(50% - 750px);
-    /* WebKit */
+    
     left: -webkit-calc(50% - 750px);
-    /* Opera */
+    
     left: -o-calc(50% - 750px);
-    /* Standard */
+    
     left: calc(50% - 750px);
 }
 
@@ -474,13 +486,13 @@ input[type=submit] {
     width:338px;
     height:395px;
     position:absolute;
-    /* Firefox */
+    
     right: -moz-calc(50% - 750px);
-    /* WebKit */
+    
     right: -webkit-calc(50% - 750px);
-    /* Opera */
+    
     right: -o-calc(50% - 750px);
-    /* Standard */
+    
     right: calc(50% - 750px);
 }
 
@@ -489,17 +501,15 @@ input[type=submit] {
     width:595px;
     height:889px;
     position:absolute;
-    /* Firefox */
+    
     left: -moz-calc(50% - 900px);
-    /* WebKit */
+    
     left: -webkit-calc(50% - 900px);
-    /* Opera */
+    
     left: -o-calc(50% - 900px);
-    /* Standard */
+    
     left: calc(50% - 900px);
-    /*do I really need all of the calcs?*/
 
     margin-top:-200px;
 }
-
-
+*/

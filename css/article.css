@@ -19,11 +19,6 @@
 }
 
 p {
-    font-size: 1.5em;
+    /*font-size: 1.5em;*/
     text-align: left;
-}
-
-.articleSection {
-    width:900px;
-    max-width:90%;
 }

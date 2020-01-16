@@ -21,9 +21,9 @@
     <a class="navLink" href="#contact">CONTACT ME</a>
 </div>
 
-<div id="aboutMe" class="whiteContainer">
+<div id="aboutMe" class="container">
     <h class="sectionHeader">ABOUT ME</h>
-    <div class="aboutMe">
+    <div class="section">
         <p style="text-align:left;">I am an aspiring software developer 
             with an interest in all things code. My passion for coding has taken me from creating games to creating websites. 
             If you want to see some of my projects just click to view my <a href="#projects">portfolio</a>. You can also get
@@ -34,85 +34,83 @@
     </div>
 </div>
 
-<div id="skills" class="grayContainer">
+<div id="skills" class="container">
     <h class="sectionHeader">SKILLS</h>
-    <p>These are some of the languages and tools that I use the most.</p>
-    <div class="tools">
-        <div class="skillsContainer">
-            <h>Languages<h>
-            <ul>
-                <li>Python</li>
-                <li>Java</li>
-                <li>C</li>
-                <li>Javascript</li>
-                <li>Html</li>
-            </ul>
-        </div>
-        <div class="skillsContainer">
-            <h>Frameworks<h>
-            <ul>
-                <li>Flask</li>
-                <li>React</li>
-                <li>Django</li>
-            </ul>
-        </div>
-        <div class="skillsContainer">
-            <h>Tools<h>
-            <ul>
-                <li>Git</li>
-                <li>Bash</li>
-            </ul>
-        </div>
-    </div>
-</div>
-
-<div>
-    <div id="education" class="whiteContainer">
-        <h class="sectionHeader">EDUCATION</h>
-        <div class="education">
-            <h1>WASHINGTON STATE UNIVERSITY</h1>
-            <h3>BACHELOR OF SCIENCE IN COMPUTER SCIENCE</h3>
-            <h4>2019</h4>
-        </div>
-    </div>
-</div>
-
-<div>
-    <!--<div class="hexagons"></div>-->
-    <div id="projects" class="grayContainer">
-        <h class="sectionHeader">PROJECTS</h>
-        <div class="projects">
-            <p>Here are some projects that I've worked on</p>
-            <div class="projectsContainer">
-                <a href="pages/stealTheRuby/strArticle.html">
-                    <img class="projectPic" src="pages/stealTheRuby/assets/icon.png">
-                </a>
-                <a href="pages/breakoutEX/bexArticle.html">
-                    <img class="projectPic" src="pages/breakoutEX/assets/icon.png">
-                </a>
-                <a href="pages/landmark/lmArticle.html">
-                    <div class="projectIconBox">
-                        <div class="bottomBox">
-                            <p style="z-index:2;">Landmark Search Engine</p>
-                        </div>
-                        <img src="pages/landmark/assets/map.png">
-                    </div>
-                </a>
-                <a href="pages/energyPredict/epArticle.html">
-                    <div class="projectIconBox">
-                        <div class="bottomBox">
-                            <p style="z-index:2;">Energy Forecast Predictor App</p>
-                        </div>
-                        <img src="pages/energyPredict/assets/screen1.png">
-                    </div>
-                </a>
+    <div class="section"> 
+        <p>These are some of the languages and tools that I use the most.</p>
+        <div class="tools">
+            <div class="skillsContainer">
+                <h>Languages<h>
+                <ul>
+                    <li>Python</li>
+                    <li>Java</li>
+                    <li>C</li>
+                    <li>Javascript</li>
+                    <li>Html</li>
+                </ul>
+            </div>
+            <div class="skillsContainer">
+                <h>Frameworks<h>
+                <ul>
+                    <li>Flask</li>
+                    <li>React</li>
+                    <li>Django</li>
+                </ul>
+            </div>
+            <div class="skillsContainer">
+                <h>Tools<h>
+                <ul>
+                    <li>Git</li>
+                    <li>Bash</li>
+                </ul>
             </div>
         </div>
     </div>
 </div>
 
+<div id="education" class="container">
+    <h class="sectionHeader">EDUCATION</h>
+    <div class="section">
+        <h1 class="wordWrap">WASHINGTON STATE UNIVERSITY</h1>
+        <h3 class="wordWrap">BACHELOR OF SCIENCE IN COMPUTER SCIENCE</h3>
+        <h4>2019</h4>
+    </div>
+</div>
+
+<!--<div class="hexagons"></div>-->
+<div id="projects" class="container">
+    <h class="sectionHeader">PROJECTS</h>
+    <div class="section">
+        <p>Here are some projects that I've worked on</p>
+        <div class="projectsContainer">
+            <a href="pages/stealTheRuby/strArticle.html">
+                <img class="projectPic" src="pages/stealTheRuby/assets/icon.png">
+            </a>
+            <a href="pages/breakoutEX/bexArticle.html">
+                <img class="projectPic" src="pages/breakoutEX/assets/icon.png">
+            </a>
+            <a href="pages/landmark/lmArticle.html">
+                <div class="projectIconBox">
+                    <div class="bottomBox">
+                        <p style="z-index:2;">Landmark Search Engine</p>
+                    </div>
+                    <img src="pages/landmark/assets/map.png">
+                </div>
+            </a>
+            <a href="pages/energyPredict/epArticle.html">
+                <div class="projectIconBox">
+                    <div class="bottomBox">
+                        <p style="z-index:2;">Energy Forecast Predictor App</p>
+                    </div>
+                    <img src="pages/energyPredict/assets/screen1.png">
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
 <div id="contact" class="gradientContainer">
-    <h class="whiteSectionHeader">CONTACT ME</h>
+    <h class="sectionHeader text-white">CONTACT ME</h>
     <div class="contactForm">
         <form action="mail.php" method="POST">
             <input maxlength="100" type="text" id="contactName" name="name" placeholder="Name">
