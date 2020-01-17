@@ -38,6 +38,7 @@ p, h1, h2, h3, h4, h {
 ul {
     margin: var(--padding-text);
     margin-bottom: 0px;
+    margin-left: 0px;
 }
 
 textarea {
@@ -58,6 +59,8 @@ html, body {
     max-width:100%;
     text-align: left;
     float:left;
+
+    margin-bottom: var(--padding-text);
 
    /* padding:20px;*/
 }
@@ -285,7 +288,6 @@ code {
 }
 
 .projectsContainer {
-    width:900px;
     max-width:100%;
     display: flex;
     justify-content: center;
@@ -367,7 +369,7 @@ input[type=submit] {
 
 .projectPic {
     border-radius: 35px;
-    height:256px;
+    height:220px;
     
     float:left;
     padding:10px;
@@ -376,8 +378,8 @@ input[type=submit] {
 
 .projectBox {
     border-radius: 35px;
-    width:236px;
-    height:236px;
+    width:200px;
+    height:200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -392,8 +394,8 @@ input[type=submit] {
 }
 
 .projectIconBox {
-    height:256px;
-    width:256px;
+    height:220px;
+    width:220px;
     overflow:hidden;
     border-radius: 35px;
     margin:10px;
@@ -419,7 +421,7 @@ input[type=submit] {
 
 
 .projectIconPic {
-    height:256px;
+    height:220px;
     max-height:100%;
     float:left;
     
