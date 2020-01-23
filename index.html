@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <title>Kevin Bergstrom</title>z
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/flipboxes.css">
     <link href="/fontawesome-free-5.12.0-web/css/all.min.css" rel="stylesheet"> <!--load all styles -->
@@ -116,11 +117,12 @@
 <div id="contact" class="gradientContainer">
     <h class="sectionHeader text-white">CONTACT ME</h>
     <div class="contactForm">
-        <form action="mail.php" method="POST">
-            <input maxlength="100" type="text" id="contactName" name="name" placeholder="Name">
-            <input maxlength="100" type="text" id="contactEmail" name="email" placeholder="Email Address">
-            <textarea maxlength="2000" id="contactMessage" name="message" placeholder="Message" style="height:200px"></textarea>
-            <input type="submit" value="SEND">
+        <form action="http://formspree.io/kevbergstrom@gmail.com" method="POST">
+            <input type="text" name="_gotcha" style="display:none">
+            <input maxlength="100" type="text" id="contactName" name="_subject" placeholder="Name">
+            <input maxlength="100" type="text" id="contactEmail" name="_replyto" placeholder="Email Address">
+            <textarea maxlength="2000" id="contactMessage" name="body" placeholder="Message" style="height:200px"></textarea>
+            <input type="submit" value="send">
         </form>
     </div>
     <div class="mountains"></div>
