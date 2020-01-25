@@ -270,8 +270,10 @@ function moved(event){
     oldMouseX = mouseX
     oldMouseY = mouseY
 
-    mouseX = event.clientX;
-    mouseY = event.clientY;
+    let rect = renderArea.canvas.getBoundingClientRect();
+
+    mouseX = event.clientX - rect.left;
+    mouseY = event.clientY - rect.top;
     
     mousePercentX = mouseX/canvas.width();
     mousePercentY = mouseY/canvas.height();
