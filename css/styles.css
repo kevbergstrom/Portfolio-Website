@@ -18,10 +18,14 @@
     --font-size-medium: 3.35em;
     --font-size-large: 4em;
 
+    --underline-size: 3px;
+
     --padding-cont: 30px;
     --padding-text: 30px;
     --padding-screenshot: 30px;
     --padding-input: 30px;
+
+    --hexagon-size: 20px;
 }
 
 /*p has a 1em margin*/
@@ -246,7 +250,7 @@ code {
 .sectionHeader {
     max-width:90%;
     font-size: var(--font-size-medium);
-    border-bottom: 4px solid currentColor;
+    border-bottom: var(--underline-size) solid currentColor;
     
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -256,7 +260,7 @@ code {
 /* custom underline stuff*/
 .noUnder {
     border:none;
-    margin-bottom: calc(var(--padding-text) - 20px);
+    margin-bottom: calc(var(--padding-text) - var(--hexagon-size));
 }
 
 .customLine{
@@ -273,7 +277,7 @@ code {
 }
 
 .customLine hr{
-    height:4px;
+    height: var(--underline-size);
     width:100%;
     max-width:50%;
     border:0;
@@ -281,16 +285,16 @@ code {
     margin:0px;
     margin-top:7px;
 
-    background-color:rgb(0, 0, 0);
+    background-color: currentColor;
     vertical-align: center;
     padding:0px;
 }
 
 img.hex {
-    height:20px;
-    width:20px;
-    min-width: 20px;
-    min-height: 20px;
+    height: var(--hexagon-size);
+    width: var(--hexagon-size);
+    min-width: var(--hexagon-size);
+    min-height: var(--hexagon-size);
     margin-left:5px;
     margin-right:5px;
 
