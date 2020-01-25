@@ -65,6 +65,25 @@ html, body {
    /* padding:20px;*/
 }
 
+.skillsContainer ul li{
+    list-style:none;
+}
+
+.skillsContainer ul li:before{
+    content:"";
+    
+    margin-left:-20px;
+    margin-top:10px;
+    position:absolute;
+    width:8px;
+    height:8px;
+
+    border-style: solid;
+    border-width:0.5px;
+
+    transform: rotate(45deg);
+}
+
 .tools {
     /*font-size: var(--font-size-small);*/
     width:900px;
