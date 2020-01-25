@@ -231,6 +231,51 @@ code {
     
     overflow-wrap: break-word;
     word-wrap: break-word;
+
+}
+
+/* custom underline stuff*/
+.noUnder {
+    border:none;
+    margin-bottom: calc(var(--padding-text) - 20px);
+}
+
+.customLine{
+    
+    width:100%;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    text-align: center;
+    flex-direction: row;
+
+    margin:0px;
+
+}
+
+.customLine hr{
+    height:4px;
+    width:100%;
+    max-width:50%;
+    border:0;
+
+    margin:0px;
+    margin-top:7px;
+
+    background-color:rgb(0, 0, 0);
+    vertical-align: center;
+    padding:0px;
+}
+
+img.hex {
+    height:20px;
+    width:20px;
+    min-width: 20px;
+    min-height: 20px;
+    margin-left:5px;
+    margin-right:5px;
+
+    user-select: none;
 }
 
 .text-white {
@@ -439,6 +484,7 @@ input[type=submit] {
     height:215px;
     
 }
+
 
 
 /*cold storage*/
