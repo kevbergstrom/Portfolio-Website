@@ -11,6 +11,7 @@
     --main-bg-skills: rgb(0, 148, 255);
     --main-bg-projects: var(--main-bg-splash);
     --main-font-projects: white;
+    --main-selected: rgb(0,0,0);
 
     --font-size-tiny: 0.75em;
     --font-size-input: 1.5em;
@@ -53,6 +54,7 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
 
 .wrapWord {
     overflow-wrap: break-word;
@@ -119,7 +121,6 @@ pre {
 code {
     font-size:13px;
 }
-
 
 .rectHolder {
     height: 1em;
@@ -218,6 +219,10 @@ code {
     float:left;
 }
 
+.select{
+    border: 1px solid;
+}
+
 
 /*TODO make these one*/
 .flexVertical {
@@ -254,7 +259,6 @@ code {
     
     overflow-wrap: break-word;
     word-wrap: break-word;
-
 }
 
 /* custom underline stuff*/
@@ -268,12 +272,12 @@ code {
     width:100%;
     display: flex;
     justify-content: center;
-    align-items: left;
     text-align: center;
     flex-direction: row;
 
     margin:0px;
 
+    transition: width 2s;
 }
 
 .customLine hr{
@@ -342,8 +346,9 @@ img.hex {
     background-color: white;
 }
 
-.gradientContainer {
+.container.gradient {
     padding-top: var(--padding-cont);
+    padding-bottom:0px;
     display: flex;
     justify-content: center;
     align-items: center;
