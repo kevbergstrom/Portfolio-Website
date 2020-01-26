@@ -18,6 +18,12 @@ function getContainers(){
 
 function scrolled(){
 	let windowPosY = $(window).scrollTop();
+	//check if at bottom of page
+	if(windowPosY + $(window).height() == $(document).height()){
+		//select the last nav
+		selectNav(containers[containers.length-1]);
+		return;
+	}
 	//iterate through all of the containers
 	for(i = 0;i<containers.length;i++){
 		if(containers[i].offsetTop>windowPosY+padding){
