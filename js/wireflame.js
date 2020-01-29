@@ -48,13 +48,10 @@ $(document).ready(function() {
 
 function startFlame(){
 
-    let id = 0;
-
     for(i = 0;i<pointsAmount;i++){
 
-        let circ = new point(Math.random()*width,Math.random()*height,10,id);
+        let circ = new point(Math.random()*width,Math.random()*height,10,i);
         points.push(circ);
-        id += 1;
     }
 
     renderArea.start();
