@@ -453,7 +453,7 @@ input[type=submit] {
 }
 
 .projectBox {
-    border-radius: 35px;
+    /*border-radius: 35px;*/
     width:200px;
     height:200px;
     display: flex;
