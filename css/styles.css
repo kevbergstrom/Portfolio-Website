@@ -441,12 +441,15 @@ input[type=submit] {
 }
 
 .projectPic {
-    border-radius: 35px;
+    /*border-radius: 35px;*/
     height:220px;
     
     float:left;
-    padding:10px;
+    margin:10px;
     transition: transform .3s;
+
+    /*border-style: solid;
+    border-color: black;*/
 }
 
 .projectBox {
@@ -470,7 +473,7 @@ input[type=submit] {
     height:220px;
     width:220px;
     overflow:hidden;
-    border-radius: 35px;
+    /*border-radius: 35px;*/
     margin:10px;
     display: flex;
     justify-content: center;
@@ -481,6 +484,9 @@ input[type=submit] {
     color:var(--main-font-projects);
     transition: transform .3s;
     position: relative;
+
+    /*border-style: solid;
+    border-color: black;*/
 }
 
 .bottomBox {
