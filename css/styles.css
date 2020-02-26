@@ -9,12 +9,14 @@
     --main-bg-nav: rgb(100,100,100);/*rgb(109, 179, 211);*/
     --main-bg-gray: rgb(242,242,242);
     --main-bg-skills: rgb(0, 148, 255);
+    --main-contact: rgb(64, 64, 64);
     --main-bg-projects: var(--main-bg-splash);
     --main-font-projects: white;
     --main-selected: rgb(0,0,0);
+    --main-link: rgb(31, 31, 31);
 
     --font-size-tiny: 0.75em;
-    --font-size-input: 1.5em;
+    --font-size-input: 1.35em;
     --font-size-small: 1.5em;
     --font-size-medium: 3.35em;
     --font-size-large: 4em;
@@ -24,7 +26,7 @@
     --padding-cont: 30px;
     --padding-text: 30px;
     --padding-screenshot: 30px;
-    --padding-input: 30px;
+    --padding-input: 20px;
 
     --hexagon-size: 20px;
 }
@@ -44,6 +46,10 @@ ul {
     margin: var(--padding-text);
     margin-bottom: 0px;
     margin-left: 0px;
+}
+
+a {
+    color:var(--main-link);
 }
 
 textarea {
@@ -346,7 +352,7 @@ img.hex {
     background-color: white;
 }
 
-.container.gradient {
+#contact.container {
     padding-top: var(--padding-cont);
     padding-bottom:0px;
     display: flex;
@@ -355,7 +361,7 @@ img.hex {
     text-align: center;
     flex-direction: column;
     width:100%;
-    background-image: linear-gradient(rgb(0,148,255), rgb(124,184,211));
+    background-color: var(--main-contact);
 
     font-family: newFont;
 }
@@ -388,6 +394,7 @@ input[type=text], textarea {
 
     font-family: newFont;
     font-size: var(--font-size-input);
+    font-weight: 600;
 
     border-style: none;
     border-radius: 5px;
@@ -512,6 +519,29 @@ input[type=submit] {
     transform: scale(1.2);
 }
 
+.buffer {
+    width:100%;
+    height:215px;
+}
+
+/*cold storage*/
+
+/*
+
+.container.gradient {
+    padding-top: var(--padding-cont);
+    padding-bottom:0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width:100%;
+    background-image: linear-gradient(rgb(0,148,255), rgb(124,184,211));
+
+    font-family: newFont;
+}
+
 .mountains {
     background-image:url(../assets/mountains.png);
     width:100%;
@@ -519,11 +549,6 @@ input[type=submit] {
     
 }
 
-
-
-/*cold storage*/
-
-/*
 .overviewBox {
     background-color: var(--main-bg-gray);
     padding-left:10px;
