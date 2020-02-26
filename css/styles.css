@@ -14,6 +14,13 @@
     --main-font-projects: white;
     --main-selected: rgb(0,0,0);
     --main-link: rgb(31, 31, 31);
+    --main-bottom-line: rgb(80,80,80);
+    --main-nav-link: rgb(201, 201, 201);
+
+    --main-blue: rgb(23, 208, 208);
+    --main-purple: rgb(150, 39, 242);
+    --main-pink: rgb(243, 14, 243);
+    --main-gradient: linear-gradient(to right,var(--main-blue),var(--main-purple),var(--main-pink));
 
     --font-size-tiny: 0.75em;
     --font-size-input: 1.35em;
@@ -199,7 +206,7 @@ code {
 .navContainer {
     width:100%;
     padding-top:5px;
-    padding-bottom:5px;
+    padding-bottom:0px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -220,13 +227,20 @@ code {
 .navLink {
     padding-left:12px;
     padding-right:12px;
-    color:white;
+    color:var(--main-nav-link);
     text-decoration: none;
     float:left;
 }
 
 .select{
-    border: 1px solid;
+    color:white;
+    font-weight: bold;
+}
+
+.bottomLine {
+    width:100%;
+    height:5px;
+    background-color: var(--main-bottom-line);
 }
 
 
@@ -250,7 +264,6 @@ code {
 
 .icon {
     padding: 12px;
-    color:black;
 }
 
 .icon:hover{
@@ -284,6 +297,7 @@ code {
     margin:0px;
 
     transition: width 2s;
+
 }
 
 .customLine hr{
@@ -407,8 +421,8 @@ input[type=submit] {
     margin-bottom:var(--padding-input);
 
     font-family: newFont;
-    font-size: var(--font-size-input);
-    background-color: white;
+    font-size: 1.5em;
+    background-color: rgb(177, 177, 177);
 
     resize:vertical;
 
