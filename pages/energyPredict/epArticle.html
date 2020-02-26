@@ -14,11 +14,14 @@
 </div>
 
 <div class="navContainer">
-    <a class="navLink" href="../../index.html#projects">HOME</a>
+    <div>
+        <a class="navLink select" href="../../index.html#projects">HOME</a>
+    </div>
+    <div class="bottomLine"></div>
 </div>
 
 <div class="container">
-    <h class="sectionHeader">OVERVIEW</h>
+    <h class="sectionHeader noUnder">OVERVIEW<div class="customLine"><hr><img src="../../assets/hexagon.png" class="hex"><hr></div></h>
     <div class="section">
         <p class="centerText">This was a Capstone group project for a course in college (CS 420/421) in Spring 2019.
         We developed an app for the Northwest Power and Conservation Council.
@@ -35,7 +38,7 @@
 </div>
 
 <div class="container">
-    <h class="sectionHeader">RESOURCE STACK</h>
+    <h class="sectionHeader noUnder">RESOURCE STACK<div class="customLine"><hr><img src="../../assets/hexagon.png" class="hex"><hr></div></h>
     <div class="section">
         <p>There are plenty of different ways to generate power. This app looks at the four most prominent ways power is generated
             in the Pacific Northwest.
@@ -58,7 +61,7 @@
 </div>
 
 <div class="container">
-    <h class="sectionHeader">AROUND THE CLOCK PREDICTIONS</h>
+    <h class="sectionHeader noUnder">AROUND THE CLOCK PREDICTIONS<div class="customLine"><hr><img src="../../assets/hexagon.png" class="hex"><hr></div></h>
     <div class="section">
         <p>New predictions are generated at the start of each hour. 
             The next twelve hours and the previous twelve hours are shown.
@@ -70,7 +73,7 @@
 </div>
 
 <div class="container">
-    <h class="sectionHeader">IMPLEMENTATION</h>
+    <h class="sectionHeader noUnder">IMPLEMENTATION<div class="customLine"><hr><img src="../../assets/hexagon.png" class="hex"><hr></div></h>
     <div class="section">
         <p>The app itself was made in React. The app communicates with the server API which was made in Python and Flask.
             The Python server uses Tensorflow to generate the predictions which are cahced using Redis. 
@@ -80,7 +83,7 @@
 </div>
 
 <div class="container">
-    <h class="sectionHeader">DATA GATHERING</h>
+    <h class="sectionHeader noUnder">DATA GATHERING<div class="customLine"><hr><img src="../../assets/hexagon.png" class="hex"><hr></div></h>
     <div class="section">
         <p>Data is gathered from a variety of sources. Current weather data is gathered from DarkSky API.
             Flowgate data from Bonneville Power Administration is collected directly from their website. 

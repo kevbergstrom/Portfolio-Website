@@ -13,11 +13,6 @@
     text-align: center;
 }
 
-.navContainer {
-    background-color: black;
-    /*need to have float left?*/
-}
-
 p {
     /*font-size: 1.5em;*/
     text-align: left;
