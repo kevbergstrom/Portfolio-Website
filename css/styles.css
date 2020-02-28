@@ -115,7 +115,6 @@ html, body {
 }
 
 .tools {
-    /*font-size: var(--font-size-small);*/
     width:900px;
     max-width:90%;
 
@@ -174,9 +173,7 @@ code {
     justify-content: center;
     align-items: center;
     background-color: var(--main-bg-splash);
-    
-    /* do I want this gradient?*/
-    /*background-image: linear-gradient(black,black,rgb(0, 80, 170));*/
+
     background-color: black;
 }
 
@@ -233,6 +230,7 @@ code {
 
     z-index: 10;
 
+    box-shadow: 0px 7px 7px -7px rgba(0, 0, 0, 0.5);
 }
 
 .navLink {
@@ -367,12 +365,6 @@ img.hex {
     background-color: var(--main-bg-gray);
 }
 
-/* only effects the odd containers*/
-/*div.container>div:nth-of-type(odd){
-    background-color: white;
-}*/
-
-
 .container:nth-of-type(odd){
     background-color: white;
 }
@@ -401,11 +393,100 @@ img.hex {
     padding-bottom:var(--padding-cont);
 }
 
+/*    PROJECTS    */
+
+.projectBox {
+    position: relative;
+    width: 280px;
+    max-width: 100%;
+    background-color: white;
+
+    margin:10px;
+
+    box-shadow: 0px 0px 7px rgba(0,0,0,0.5);
+    text-align:left;
+    
+}
+
+.projectImage {
+    position:relative;
+    cursor: pointer;
+    overflow: hidden;
+    width:280px;
+    max-width: 100%;
+    height:auto;
+    max-height: 280px;
+}
+
+.innerImage {
+    position:relative;
+    width:100%;
+}
+
+.innerImage:hover{
+    opacity:0.5;
+}
+
+.projectDesc {
+    background-color: white;
+    
+    padding:10px;
+}
+
+.tools{
+    padding:0px;
+    justify-content: left;
+}
+
+.tool{
+    
+    color:black;
+    border-radius: 0px;
+    border: 2px solid;
+
+    padding:1px;
+    margin: 5px;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+.projectButton{
+    border:0px;
+    
+    color:black;
+    border-radius: 0px;
+    border: 1px solid;
+    padding:1px;
+    margin: 5px;
+    padding-left:5px;
+    padding-right:5px;
+
+    text-decoration: none;
+}
+
+.projectBottom {
+    position: absolute;
+    bottom:10px;
+    right:10px;
+}
+
 /*    CONTACT    */
 .contactForm {
     /*padding: 30px;*/
     width:900px;
     max-width:90%;
+}
+
+::placeholder{
+    color: white;
+}
+
+:-ms-input-placeholder{
+    color: white;
+}
+
+::-ms-input-placeholder{
+    color: white;
 }
 
 input[type=text], textarea {
@@ -420,10 +501,15 @@ input[type=text], textarea {
     font-family: newFont;
     font-size: var(--font-size-input);
     font-weight: 600;
+    color:white;
+
+    background-color: rgb(40,40,40);
 
     border-style: none;
-    border-radius: 5px;
+    border-radius: 0px;
     padding:5px;
+    border: 0px solid white;
+
 }
 
 input[type=submit] {
@@ -433,13 +519,16 @@ input[type=submit] {
 
     font-family: newFont;
     font-size: 1.5em;
-    background-color: rgb(177, 177, 177);
+    color:white;
+    background-color: transparent;
 
     resize:vertical;
 
-    border-radius: 5px;
-    border-style: none;
+    border-radius: 0px;
+    border: 2px solid white;
     padding:5px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 /*    MODAL    */
@@ -457,9 +546,7 @@ input[type=submit] {
 }
 
 .slidesModal{
-
     height: 100%;
-    
 }
 
 .modalLoading{
@@ -482,7 +569,6 @@ input[type=submit] {
 .modalImage {
     position:absolute;
     
-
     max-width: 90%;
     max-height:90%;
     height: auto;
@@ -579,78 +665,6 @@ input[type=submit] {
     overflow-wrap: break-word;
     word-wrap: break-word;
 
-}
-
-.projectPic {
-    /*border-radius: 35px;*/
-    height:220px;
-    
-    float:left;
-    margin:10px;
-    transition: transform .3s;
-
-    /*border-style: solid;
-    border-color: black;*/
-}
-
-.projectBox {
-    /*border-radius: 35px;*/
-    width:200px;
-    height:200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    flex-direction: column;
-    background-color: var(--main-bg-projects);
-    /*padding:10px;*/
-    float:left;
-    /*margin:10px;*/
-    color:var(--main-font-projects);
-    transition: transform .3s;
-}
-
-.projectIconBox {
-    height:220px;
-    width:220px;
-    overflow:hidden;
-    /*border-radius: 35px;*/
-    margin:10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    word-wrap: wrap;
-
-    color:var(--main-font-projects);
-    transition: transform .3s;
-    position: relative;
-
-    /*border-style: solid;
-    border-color: black;*/
-}
-
-.bottomBox {
-    position:absolute;
-    background-color: var(--main-bg-projects);
-    bottom:0;
-    margin:0px;
-    width:100%;
-    color:var(--main-font-projects);
-}
-
-
-.projectIconPic {
-    height:220px;
-    max-height:100%;
-    float:left;
-    
-    padding:10px;
-    transition: transform .3s;
-}
-
-.projectPic:hover, .projectBox:hover, .projectIconBox:hover {
-    transform: scale(1.2);
 }
 
 .buffer {
