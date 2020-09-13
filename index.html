@@ -1,231 +1,266 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kevin Bergstrom</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/wireflame.css">
-    <link href="/fontawesome-free-5.12.0-web/css/all.min.css" rel="stylesheet"> <!--load all styles -->
-    <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="./fontawesome-free-5.12.0-web/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/main.css">
 </head>
-<meta name="viewport" content="width=device-width">
-<body style="overflow-x: hidden;">
+<body class="customFont" style="height:100%">
 
-<div class="splash">
-    <h class="splashHeader">Hi I'm Kevin Bergstrom.<br />I like to code.</h>
-    <canvas id="wireflame" width="1920" height="1080"></canvas>
-</div>
-
-<div class="navContainer">
-    <div>
-        <a class="navLink" href="#aboutMe">ABOUT</a>
-        <a class="navLink" href="#skills">SKILLS</a>
-        <a class="navLink" href="#education">EDUCATION</a>
-        <a class="navLink" href="#projects">PROJECTS</a>
-        <a class="navLink" href="#contact">CONTACT ME</a>
-    </div>
-    <div class="bottomLine"></div>
-</div>
-
-<div id="aboutMe" class="container">
-    <h class="sectionHeader noUnder">ABOUT ME<div class="customLine"><hr><img src="../assets/hexagon.png" class="hex"><hr></div></h>
-    <div class="section">
-        <p style="text-align:left;">I am an aspiring software developer 
-            with an interest in all things code. My passion for coding has taken me from creating small games to developing outstanding software.
-            I am very excited to put my skills to use and get involved in interesting projects!
-            If you want to see some of my recent projects just click to view my <a href="#projects">portfolio</a> section.</p>
-        <p>Coder, Designer, Developer</p>
-        <a class="icon" href="https://github.com/kevbergstrom"><i class="fab fa-github"></i></a>
-        <a class="icon" href="https://www.linkedin.com/in/kevbergstrom/"><i class="fab fa-linkedin"></i></a>
-        <a class="icon" href="#contact"><i class="far fa-envelope"></i></a>
-    </div>
-</div>
-
-<div id="skills" class="container">
-    <h class="sectionHeader noUnder">SKILLS<div class="customLine"><hr><img src="../assets/hexagon.png" class="hex"><hr></div></h>
-    <div class="section"> 
-        <p>These are some of the languages, frameworks, and tools that I use the most for my projects.
-        This is by no means an exhaustive list. I'm always excited to learn new things,
-        especially new frameworks!</p>
-        <div class="tools">
-            <div class="skillsContainer">
-                <h><b>Languages</b></h>
-                <ul>
-                    <li>Python</li>
-                    <li>Java</li>
-                    <li>C</li>
-                    <li>JavaScript</li>
-                </ul>
+    <nav id="navbar" class="navbar navbar-dark">
+        <div class="d-block d-sm-block d-md-none">
+            <button class="navbar-toggler" onclick="toggleNavbar()">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navOptions" class="d-none darkBg" onclick="toggleNavbar()">
+                <a class="nav-link" href="#landing">HOME</a>
+                <a class="nav-link" href="#about">ABOUT</a>
+                <a class="nav-link" href="#education">EDUCATION</a>
+                <a class="nav-link" href="#projects">PROJECTS</a>
+                <a class="nav-link" href="#contact">CONTACT</a>
             </div>
-            <div class="skillsContainer">
-                <h><b>Frameworks</b></h>
-                <ul>
-                    <li>Flask</li>
-                    <li>React</li>
-                    <li>Django</li>
-                </ul>
-            </div>
-            <div class="skillsContainer">
-                <h><b>Tools</b></h>
-                <ul>
-                    <li>Git</li>
-                    <li>Bash</li>
-                    <li>Excel</li>
-                </ul>
+        </div>
+        <ul class="navbar-nav mr-auto">
+        </ul>
+        <a class="nav-link d-none d-sm-none d-md-block" href="#landing">HOME</a>
+        <a class="nav-link d-none d-sm-none d-md-block" href="#about">ABOUT</a>
+        <a class="nav-link d-none d-sm-none d-md-block" href="#education">EDUCATION</a>
+        <a class="nav-link d-none d-sm-none d-md-block" href="#projects">PROJECTS</a>
+        <a class="nav-link d-none d-sm-none d-md-block" href="#contact">CONTACT</a>
+      </nav>
+
+    <div id="landing" class="jumbotron fullHeight m-0">
+        <div class="row h-100">
+            <div class="col text-center align-self-center">
+                <h1 class="largeTitle">
+                    Hello, my name is 
+
+                    <span data-title="Kevin" class="accentColor nametag">Kevin</span>
+                    <span data-title="Bergstrom" class="accentColor nametag">Bergstrom</span>
+                    <br>
+                    I build 
+                    <span id="wordScroll" class="noselect" onclick="wordsScroll()">software</span>
+                </h1>
+                <a class="btn linkButton slideButton smallTitle" href="#about">See more</a>
             </div>
         </div>
     </div>
-</div>
 
-<div id="education" class="container">
-    <h class="sectionHeader noUnder">EDUCATION<div class="customLine"><hr><img src="../assets/hexagon.png" class="hex"><hr></div></h>
-    <div class="section">
-        <h1 class="wordWrap">WASHINGTON STATE UNIVERSITY</h1>
-        <h3 class="wordWrap">BACHELOR OF SCIENCE IN COMPUTER SCIENCE</h3>
-        <h4>2019</h4>
-    </div>
-</div>
+    <div id="about" class="container-fluid p-4 darkMode">
+        <div class="container p-3">
+            <div class="row"> 
+                <div class="col col-md-6 col-sm-12 col-12 p-3">
+                    <h2 class="mediumTitle pb-3">About Me</h2>
+                    <p class="pb-3">Hi I'm Kevin, building robust apps with stellar code is my passion. 
+                        React is the main framework that I use for software development. 
+                        Python and JavaScript are my go-to languages, but I also dabble in other languages like Java. 
+                        I'm always excited to learn new technologies or work on new projects. </p>
+                    <hr>
+                    <div class="d-flex justify-content-around">
+                        <a class="icon ghost" href="https://github.com/kevbergstrom"><i class="fab fa-github-square"></i></a>
+                        <a class="icon ghost" href="https://www.linkedin.com/in/kevbergstrom/"><i class="fab fa-linkedin"></i></a>
+                        <a class="icon ghost" href="#!"><i class="fab fa-twitter-square"></i></a>
+                        <a class="icon ghost" href="#contact"><i class="fas fa-envelope-square"></i></a>
+                    </div>
+                </div>
 
-<div id="projects" class="container">
-
-    <div id="projectModal" class="modal">
-        <div class="slidesModal">
-            <div class="modalLoading fas fa-spinner"></div>
-            <img id="slide" class="modalImage" src="">
-            <button class="slidePrev fas fa-chevron-left" onclick="nextSlide(-1)"></button>
-            <button class="slideNext fas fa-chevron-right" onclick="nextSlide(1)"></button>
-            <button class="slideExit fas fa-times" onclick="exitModal('projectModal')"></button>
+                <div class="col col-md-6 col-sm-12 col-12 p-3 text-center">
+                    <div class="row h-100">
+                        <div class="col text-center align-self-center">
+                            <!-- <img class="img-fluid shadow" height="auto" width="300px" src=""> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <h class="sectionHeader noUnder">PROJECTS<div class="customLine"><hr><img src="../assets/hexagon.png" class="hex"><hr></div></h>
-    <div class="section">
-        <p>Here are some projects that I've recently worked on.
-        Each page has an accompaning github repository and screenshots.
-        I am comfortable working independently and collaborating on a team for projects.
-        I also enjoy the software development cycle and am very familiar with agile development practices.</p>
-        <div class="projectsContainer">
-
-            <div class="projectBox">
-                <div class="projectImage" onclick="openSlides('energyPredict')">
-                    <img class="innerImage" src="pages/energyPredict/assets/screen1.png">
+    <div id="education" class="container-fluid p-4 darkMode">
+        <div class="container p-3">
+            <div class="row">
+                <div class="col col-lg-4 col-md-6 col-sm-12 col-12">
+                    <h2 class="mediumTitle  pt-3">Education</h2>
+                    <p class="accentColor">Washington State University
+                        <br>
+                        <span class="textSecondary textGhost">2015 - 2019</span>
+                    </p>
+                    <p>Bachelor of Computer Science</p>
                 </div>
-                <div class="projectDesc">
-                    <div class="projectTitle">
-                        <h>Energy Forecast Predictor</h>
-                    </div>
-                    <hr>
-                    <div class="tools">
-                        <div class="tool">Python</div>
-                        <div class="tool">React Native</div>
-                        <div class="tool">TensorFlow</div>
-                    </div>
-                    
-                    <h>React app where users can see how green the energy they're using is</h>
-                    <p></p>
-                    <div class="projectBottom align-right">
-                        <a class="icon" href="pages/energyPredict/epArticle.html"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="projectBox">
-                <div class="projectImage" onclick="openSlides('landmark')">
-                    <img class="innerImage" src="pages/landmark/assets/map.png">
-                </div>
-                <div class="projectDesc">
-                    <div class="projectTitle">
-                        <h>Landmark Search Engine</h>
-                    </div>
-                    <hr>
-                    <div class="tools">
-                        <div class="tool">Python</div>
-                        <div class="tool">Flask</div>
-                        <div class="tool">Whoosh</div>
-                    </div>
-                    
-                    <h>A search engine that specializes in locating landmarks</h>
-                    <p></p>
-                    <div class="projectBottom align-right">
-                        <a class="icon" href="https://github.com/kevbergstrom/LandmarkAttractions" target="_blank"><i class="fab fa-github"></i></a>
-                        <a class="icon" href="pages/landmark/lmArticle.html"><i class="fas fa-external-link-alt"></i></a>
+                <div class="col col-lg-8 col-md-6 col-sm-12 col-12 pt-3">
+                    <div class="row">
+                        <div class="col col-12 col-lg-4">
+                            <h3 class="smallTitle pb-3">Languages</h3>
+                            <a class="btn techButton" href="https://www.python.org/">Python</a>
+                            <a class="btn techButton" href="https://www.java.com/en/">Java</a>
+                            <a class="btn techButton" href="https://www.javascript.com/">JavaScript</a>
+                        </div>
+                        <div class="col col-12 col-lg-4">
+                            <h3 class="smallTitle pb-3">Frameworks</h3>
+                            <a class="btn techButton" href="https://reactjs.org/">React</a>
+                            <a class="btn techButton" href="https://www.npmjs.com/package/express">Express</a>
+                        </div>
+                        <div class="col col-12 col-lg-4">
+                            <h3 class="smallTitle pb-3">Technologies</h3>
+                            <a class="btn techButton" href="https://nodejs.org/en/">Nodejs</a>
+                            <a class="btn techButton" href="https://www.mongodb.com/">MongoDB</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="projectBox">
-                <div class="projectImage" onclick="openSlides('stealTheRuby')">
-                    <img class="innerImage" src="pages/stealTheRuby/assets/icon.png">
+        </div>
+
+    </div>
+
+    <div id="projects" class="container-fluid p-4 darkMode">
+
+        <div class="container p-3">
+            <div class="row">
+                <div class="col col-12">
+                    <h2 class="mediumTitle py-3">Projects</h2>
+                    <button class="btn linkButton slideButton" onclick="filterProjects('all')">All</button>
+                    <button class="btn textButton slideButton" onclick="filterProjects('live')">Live</button>
+                    <button class="btn textButton slideButton" onclick="filterProjects('mobile')">Mobile Apps</button>
+                    <button class="btn textButton slideButton" onclick="filterProjects('website')">Websites</button>
                 </div>
-                <div class="projectDesc">
-                    <div class="projectTitle">
-                        <h>Steal The Ruby</h>
-                    </div>
+            </div>
+        
+            <div id="project1" class="row project shadow p-3 borderLeft">
+                <div class="col col-lg-5 col-12 p-3">
+                    <h3 class="smallTitle pb-3">BugTracker</h3>
+                    <p class="pb-3">BugTracker is a React app for tracking bugs in projects. It offers a more simplified approach to bug tracking.</p>
                     <hr>
-                    <div class="tools">
-                        <div class="tool">Java</div>
+                    <div>
+                        <a class="btn techButton" href="https://reactjs.org/">React</a>
+                        <a class="btn techButton" href="https://www.mongodb.com/">MongoDB</a>
+                        <a class="btn techButton" href="https://www.npmjs.com/package/express">Express</a>
+                        <a class="btn techButton" href="https://nodejs.org/en/">Nodejs</a>
                     </div>
-                    
-                    <h>Avoid the guards and sneak around in this stealth game about stealing things</h>
-                    <p></p>
-                    <div class="projectBottom align-right">
-                        <a class="icon" href="https://github.com/kevbergstrom/StealTheRuby" target="_blank"><i class="fab fa-github"></i></a>
-                        <a class="icon" href="pages/stealTheRuby/strArticle.html"><i class="fas fa-external-link-alt"></i></a>
+                    <div class="align-text-bottom">
+                        <a class="btn linkButton slideButton" href="https://nameless-harbor-79292.herokuapp.com/">Live Demo</a>
+                        <a class="btn textButton" href="https://github.com/kevbergstrom/BugTracker">Source Code</a>
+                    </div>
+                </div>
+                <div class="col col-lg-7 col-12 p-3">
+                    <div class="thumbnail">
+                        <img class="img-fluid screenImage float-right"
+                            src="./assets/bugTrackerScreen.png">
                     </div>
                 </div>
             </div>
 
-            <div class="projectBox">
-                <div class="projectImage" onclick="openSlides('breakoutEX')">
-                    <img class="innerImage" src="pages/breakoutEX/assets/icon.png">
-                </div>
-                <div class="projectDesc">
-                    <div class="projectTitle">
-                        <h>Breakout EX</h>
-                    </div>
+            <div id="project2" class="row p-3 project shadow borderLeft">
+                <div class="col col-lg-5 col-sm-12 col-12 p-3">
+                    <h3 class="smallTitle pb-3">Landmark Finder</h3>
+                    <p class="pb-3">Landmark Finder is a search engine for finding landmarks built with flask. Featuring data scraping and and searching with Whoosh.</p>
                     <hr>
-                    <div class="tools">
-                        <div class="tool">Java</div>
+                    <div>
+                        <a class="btn techButton" href="https://www.python.org/">Python</a>
+                        <a class="btn techButton" href="https://flask.palletsprojects.com/en/1.1.x/">Flask</a>
+                        <a class="btn techButton" href="https://pypi.org/project/Whoosh/">Whoosh</a>
                     </div>
-                    
-                    <h>A fresh take on the classic breakout game</h>
-                    <p></p>
-                    <div class="projectBottom align-right">
-                        <a class="icon" href="https://github.com/kevbergstrom/BreakoutEX" target="_blank"><i class="fab fa-github"></i></a>
-                        <a class="icon" href="pages/breakoutEX/bexArticle.html"><i class="fas fa-external-link-alt"></i></a>
+                    <div class="align-text-bottom">
+                        <a class="btn textButton" href="https://github.com/kevbergstrom/LandmarkAttractions">Source Code</a>
+                    </div>
+                </div>
+                <div class="col col-lg-7 col-sm-12 col-12 p-3">
+                    <div class="thumbnail">
+                        <img class="img-fluid screenImage float-right"
+                            src="./assets/landmarkPic.png">
                     </div>
                 </div>
             </div>
-            
+
+            <div id="project3" class="row p-3 project shadow borderLeft">
+                <div class="col col-lg-5 col-sm-12 col-12 p-3">
+                    <h3 class="smallTitle pb-3">Energy Forecast Predictor</h3>
+                    <p class="pb-3">A React Native app that predicts energy system demand in the Pacific Northwest. Featuring machine learning and real time data scraping.</p>
+                    <hr>
+                    <div>
+                        <a class="btn techButton" href="https://www.python.org/">Python</a>
+                        <a class="btn techButton" href="https://reactnative.dev/">React Native</a>
+                        <a class="btn techButton" href="https://www.tensorflow.org/">TensorFlow</a>
+                    </div>
+                </div>
+                <div class="col col-lg-7 col-sm-12 col-12 p-3">
+                    <div class="thumbnail">
+                        <img class="img-fluid screenImage float-right"
+                            src="./assets/energyPic.png">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    
+    <div id="contact" class="container-fluid p-4 clipPathDown">
+
+        <div class="container">
+            <div class=" p-3">
+                <h2 class="mediumTitle">Contact</h2>
+            </div>
+            <div class="row">
+
+                <div class="col col-12 col-sm-12 col-md-8">
+                    <form action="https://formspree.io/kevbergstrom@gmail.com" method="POST">
+                        <input type="text" name="_gotcha" style="display:none">
+                        
+                        <div class="form-group">
+                          <input maxlength="100" type="text" name="_subject" class="form-control" id="contactName" placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <input maxlength="100" type="email" name="_replyto" class="form-control" id="contactEmail" placeholder="Your email">
+                          </div>
+                        <div class="form-group">
+                          <textarea maxlength="2000" name="body" class="form-control" id="contactMessage" rows="3" placeholder="Type your message here"></textarea>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn sendButton">SEND</button>
+                        </div>
+                      </form>
+                </div>
+
+                <div class="col col-12 col-sm-12 col-md-4">
+
+                    <div class="row text-center">
+                        <div class="col col-md-6 p-3">
+                            <a class="icon" href="https://github.com/kevbergstrom"><i class="fab fa-github-square ghost"></i></a>
+                        </div>
+                        <div class="col col-md-6 p-3">
+                            <a class="icon" href="https://www.linkedin.com/in/kevbergstrom/"><i class="fab fa-linkedin ghost"></i></a>
+                        </div>
+                        <div class="col col-md-6 p-3">
+                            <a class="icon" href="#!"><i class="fab fa-twitter-square ghost"></i></a>
+                        </div>
+                        <div class="col col-md-6 p-3">
+                            <a class="icon" href="#contact"><i class="fas fa-envelope-square ghost"></i></a>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    
+    <div id="footer" class="container-fluid">
+        <div class="container text-center py-2">
+            <a class="icon" href="#landing"><i class="fas fa-angle-double-up fa-inverse arrow"></i></a>
+            <p class="textGhost">Made by Kevin Bergstrom</p>
         </div>
     </div>
-</div>
 
-<div id="contact" class="container">
-    <h class="sectionHeader text-white noUnder">CONTACT ME<div class="customLine"><hr><img src="../assets/hexagon2.png" class="hex"><hr></div></h>
-    <div class="section text-white">
-        <p>Have any questions about my work or want to talk about exciting new projects?
-            <br> Feel free to use this form or you can email me at kevbergstrom@gmail.com
-        </p>
-    </div>
-    <div class="contactForm">
-        <form action="https://formspree.io/kevbergstrom@gmail.com" method="POST">
-            <input type="text" name="_gotcha" style="display:none">
-
-            <input maxlength="100" type="text" id="contactName" name="_subject" placeholder="Name">
-            <input maxlength="100" type="text" id="contactEmail" name="_replyto" placeholder="Email Address">
-            <textarea maxlength="2000" id="contactMessage" name="body" placeholder="Message" style="height:200px"></textarea>
-            <input type="submit" value="Send">
-        </form>
-    </div>
-    <div class="buffer"></div>
-</div>
-
-<!-- JQuery -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-
-<script src="js/wireflame.js"></script>
-<script src="js/scroll.js"></script>
-<script src="js/modal.js"></script>
+    <!-- Load scripts -->
+    <script src="./scripts/navbar.js"></script>
+    <script src="./scripts/projects.js"></script>
+    <script src="./scripts/wordScroll.js"></script>
 
 </body>
 </html>

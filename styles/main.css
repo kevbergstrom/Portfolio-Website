@@ -1,0 +1,302 @@
+:root {
+    --primary-color: rgb(70, 233, 255);
+    --gradient-start: rgba(27, 210, 235, 0.9);
+    --gradient-end: rgba(0, 1, 78, 0.9);
+    --main-gradient: linear-gradient(to top, var(--gradient-start), var(--gradient-end));
+    --bg-primary: rgb(40, 40, 40);
+    --bg-secondary: rgb(18, 18, 18);
+    --border-primary: rgba(99, 99, 99, 0);
+    --text-secondary: #cccccc;
+    --gradient-image: url("../assets/factoryPic.jpg");
+}
+
+body {
+    background-color: var(--bg-primary);
+}
+
+p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+}
+
+hr {
+    border-color: white;
+    border: none;
+}
+
+.customFont {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.darkBg {
+    background-color: var(--bg-secondary);
+}
+
+.darkMode {
+    color: white;
+    background-color: var(--bg-primary);
+}
+
+.textSecondary {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.screenImage {
+    max-height: 300px;
+}
+
+.shadow {
+    box-shadow: 0 0.25rem 0.3rem rgba(0, 0, 0, 0.15);
+}
+
+.noselect {
+    user-select: none;
+}
+
+.fullHeight {
+    height: 100vh;
+}
+
+.project {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    background-color: var(--bg-secondary);
+    transition: all .2s ease-in-out;
+}
+
+.borderLeft {
+    border-left: 6px solid var(--text-secondary);
+}
+
+.navbar {
+    position:fixed;
+    z-index: 1000;
+    width: 100vw!important;
+    transition: all 0.25s;
+}
+
+.nav-link {
+    color:white;
+    font-weight: 700;
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: var(--primary-color);
+}
+
+.largeTitle {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.nametag {
+    position: relative;
+}
+
+.nametag::after {
+    content: attr(data-title);
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    transition: all 0.2s;
+}
+
+.nametag:hover:after {
+    color: white;
+    transform: translate(-5px, -5px);
+}
+
+.mediumTitle {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.smallTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+@media only screen and (max-width: 600px) {
+    .largeTitle {
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+    .project {
+        margin: 0 0 2rem 0;
+    }
+    #projects, #about, #education {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .borderLeft {
+        border-left: none;
+    }
+}
+
+.clipPathDown {
+    -webkit-clip-path: polygon(0% 0%, 0% 95%, 50% 100%, 100% 95%, 100% 0%);
+    clip-path: polygon(0% 0%, 0% 90%, 50% 100%, 100% 90%, 100% 0%);
+
+}
+
+.icon {
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--primary-color);
+    opacity: 1;
+    transition: all 0.2s;
+}
+
+.ghost {
+    color: white;
+    opacity: 0.4;
+    transition: color 0.2s;
+}
+
+.ghost:hover, .ghost:focus {
+    color: white;
+    opacity: 1;
+}
+
+.textGhost {
+    opacity: 0.6
+}
+
+.accentColor {
+    color: var(--primary-color);
+}
+
+.techButton {
+    background-color: var(--primary-color);
+    color: var(--bg-secondary)!important;
+    font-weight: 700;
+    padding: 0.3rem;
+    border-radius: 0;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.2s ease-in-out;
+    margin-bottom: 1rem;
+}  
+
+.techButton:hover, .techButton:focus {
+    opacity: 0.6;
+}
+
+.linkButton {
+    border: 2px solid var(--primary-color);
+    background-color: rgba(0,0,0,0);
+    color: var(--primary-color)!important;
+    font-weight: 700;
+    border-radius: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.slideButton {
+    transition: 0.2s;
+    position: relative;
+    z-index: 3;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.textButton {
+    background-color: rgba(0,0,0,0);
+    color: var(--primary-color)!important;
+    font-weight: 700;
+    border-radius: 0;
+    border: 2px solid rgba(0,0,0,0);
+    transition: all 0.2s;
+}
+
+.textButton:hover, .textButton:focus {
+    border: 2px solid var(--primary-color);
+}
+
+.slideButton:hover, .slideButton:focus {
+    color: var(--bg-secondary)!important;
+}
+
+.slideButton::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: var(--primary-color);
+    transition: width 0.2s ease-in-out;
+}
+
+.slideButton:hover:before, .slideButton:focus:before {
+    width: 100%;
+}
+
+.sendButton {
+    border: 2px solid white;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    font-weight: 700;
+    border-radius: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.sendButton:hover, .sendButton:focus {
+    color: var(--bg-primary);
+    background-color: white;
+}
+
+.form-control {
+    border: 2px solid white;
+    background-color: rgba(0,0,0,0);
+    color: white;
+    border-radius: 0;
+}
+
+.form-control:-ms-input-placeholder {
+    color: white;
+}
+
+.form-control::placeholder, .form-control::-webkit-input-placeholder {
+    color: white;
+}
+
+.arrow {
+    transition: all 0.2s;
+}
+
+.arrow:hover, .arrow:focus {
+    transform: translateY(-10%);
+}
+
+#landing {
+ background-image: var(--main-gradient), var(--gradient-image);
+ background-size: cover;
+ color:white;
+ border-radius:0;
+}
+
+/* #about {} */
+/* #projects {} */
+
+#education {
+    background-color: var(--bg-secondary);
+    border-top: 1px solid var(--border-primary);
+    border-bottom: 1px solid var(--border-primary);
+}
+
+#contact {
+    background-image: var(--main-gradient), var(--gradient-image);
+    background-size: cover;
+    color:white;
+    border-radius:0;
+}
+
+#footer {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-primary);
+    color: white;
+}
