@@ -5,12 +5,11 @@ import {FXAAShader} from '../three/examples/jsm/shaders/FXAAShader.js';
 import {BufferGeometryUtils} from '../three/examples/jsm/utils/BufferGeometryUtils.js'
 
 import loadAssets from './assetLoader.js'
-
 import treeData from '../assets/models/trees.js';
 import * as PostShader from './shaders/post.js';
-
 import {generateOptions} from './options.js';
 import daytime from './daytime.js'
+import configs from '../config/config.js'
 
 function degToRad(deg){
     return deg * Math.PI/180;
@@ -30,7 +29,10 @@ function main(){
 	renderer.toneMappingExposure = 1.25;
 
     //for phones with large pixel ratios
-    renderer.setPixelRatio(Math.min(renderer.getPixelRatio(), 1));
+    //renderer.setPixelRatio(Math.min(renderer.getPixelRatio(), 2));
+    renderer.setPixelRatio(1);
+
+    if(renderer.getPixelRatio() > 1){ configs.fxaa = false };
 
     //how can I measure performance?
 
@@ -92,7 +94,7 @@ function main(){
 
     //name text
     const worldText = new THREE.Object3D();
-    worldText.position.set(-1.1, 1.1, 4);
+    worldText.position.set(...configs.landingText.position);
     scene.add(worldText);
 
     //adding assets that needed to be loaded
@@ -148,8 +150,6 @@ function main(){
         mergedMountain.matrixAutoUpdate = false;
         scene.add(mergedMountain);
 
-
-
         //instancing trees
         const _trunkMesh = models.lowPolyTree.gltf.scene.getObjectByName( 'trunk' );
         const _treeMesh = models.lowPolyTree.gltf.scene.getObjectByName( 'tree' );
@@ -185,32 +185,32 @@ function main(){
         treeMesh.matrixAutoUpdate = false;
 
         scene.add(trunkMesh);
-        scene.add(treeMesh);  
+        scene.add(treeMesh); 
 
-        //fonts stuff
-        const montSemiGeo = new THREE.TextBufferGeometry('Kevin\nBergstrom', {
-            font: fonts.montSemiBold.font,
-            size: 0.30,
-            height: 0.0,
-            curveSegments: 3.0
-        })
-    
         let textMat = new THREE.MeshBasicMaterial({
             color: 0xFFFFFF,
             toneMapped: false,
         });
 
-
-        montSemiGeo.translate(0.0, 0.35, 0.0);
-    
-        const montItalicGeo = new THREE.TextBufferGeometry('Software Developer', {
-            font: fonts.montItalic.font,
-            size: 0.15,
-            height: 0.0,
-            curveSegments: 0.5,
+        //fonts stuff
+        const montSemiGeo = new THREE.TextBufferGeometry(configs.landingText.name.text, {
+            font: fonts.montSemiBold.font,
+            ...configs.landingText.name
         })
+
+
+        montSemiGeo.translate(0.0, configs.landingText.start, 0.0);
     
-        montItalicGeo.translate(0.0, -0.35, 0.0);
+        const montItalicGeo = new THREE.TextBufferGeometry(configs.landingText.title.text, {
+            font: fonts.montItalic.font,
+            ...configs.landingText.title
+        })
+
+        const nameMesh = new THREE.Mesh(montSemiGeo, textMat);
+        nameMesh.geometry.computeBoundingBox();
+        const nameSize = nameMesh.geometry.boundingBox.max.y - nameMesh.geometry.boundingBox.min.y;
+
+        montItalicGeo.translate(0.0, configs.landingText.start-nameSize+0.12, 0.0);
 
         let mergedGeo = BufferGeometryUtils.mergeBufferGeometries([montSemiGeo, montItalicGeo]);
         let mergedMesh = new THREE.Mesh(mergedGeo, textMat);
@@ -224,7 +224,8 @@ function main(){
         scene.add(planeMesh);
 
         //start rendering after everything is loaded
-        setTimeOfDay(timeOfDay)
+        timeOfDay = configs.timeOfDay;
+        setTimeOfDay(timeOfDay);
         requestAnimationFrame(render);
 
         document.getElementById('fallbackFront').style.display = 'none';
@@ -293,12 +294,17 @@ function main(){
     // fxaa antialiasing 
     let effectFXAA = new ShaderPass( FXAAShader );
     let pixelRatio = renderer.getPixelRatio();
-    effectFXAA.material.uniforms[ 'resolution' ].value.x = 1 / ( window.innerWidth * pixelRatio );
-    effectFXAA.material.uniforms[ 'resolution' ].value.y = 1 / ( window.innerHeight * pixelRatio );
+    // effectFXAA.material.uniforms[ 'resolution' ].value.x = 1 / ( window.innerWidth * pixelRatio );
+    // effectFXAA.material.uniforms[ 'resolution' ].value.y = 1 / ( window.innerHeight * pixelRatio );
+    effectFXAA.material.uniforms[ 'resolution' ].value.x = 1 / ( canvas.width );
+    effectFXAA.material.uniforms[ 'resolution' ].value.y = 1 / ( canvas.height );
 
     const composer = new EffectComposer(renderer);
     composer.addPass(postShader);
-    composer.addPass( effectFXAA );
+
+    if(configs.fxaa){
+        composer.addPass( effectFXAA );
+    }
 
     let timeOfDay = 12;
 
@@ -359,7 +365,7 @@ function main(){
         //     update: (e => {postShader.uniforms.waterColor.value = new THREE.Color(`hsl(${e}, 54%, 43%)`)}),
         // },
         {
-            data: true,
+            data: configs.fxaa,
             title: 'Antialiasing',
             update: (e => e? composer.addPass( effectFXAA ) :  
                              composer.removePass( effectFXAA ))
@@ -372,7 +378,8 @@ function main(){
         const canvas = renderer.domElement;
         const width = canvas.clientWidth;
         const height = canvas.clientHeight;
-        const needResize = canvas.width !== width || canvas.height !== height;
+        const needResize = canvas.width !== Math.floor(width*pixelRatio) || 
+                            canvas.height !== Math.floor(height*pixelRatio);
         if(needResize){
             renderer.setSize(width, height, false);
             frustumHeight = 2*near*Math.tan(degToRad(fov*0.5));
@@ -431,8 +438,8 @@ function main(){
             postShader.uniforms.res.value.y = canvas.height;
             postShader.uniforms.uProjInverse.value.copy(camera.projectionMatrixInverse);
 
-            effectFXAA.material.uniforms[ 'resolution' ].value.x = 1 / ( canvas.width * pixelRatio );
-            effectFXAA.material.uniforms[ 'resolution' ].value.y = 1 / ( canvas.height * pixelRatio );
+            effectFXAA.material.uniforms[ 'resolution' ].value.x = 1 / ( canvas.width );
+            effectFXAA.material.uniforms[ 'resolution' ].value.y = 1 / ( canvas.height );
             
             depthTarget.setSize(canvas.width, canvas.height);
             updateDepthBuffer();
