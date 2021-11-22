@@ -24,6 +24,7 @@ uniform vec2 res;
 uniform float cameraNear;
 uniform float cameraFar;
 uniform sampler2D tDepth;
+uniform bool showDepth;
 uniform sampler2D tCaustic;
 uniform vec3 waterColor;
 uniform vec3 skyColorPrimary;
@@ -54,6 +55,12 @@ vec3 getWorldPosition( float depth){
 }
 
 void main() {
+
+    if(showDepth == true){
+        vec4 depthPassColor = texture2D(tDepth, vUv);
+        gl_FragColor = depthPassColor;
+        return;
+    }
 
     vec4 previousPassColor = texture2D(tDiffuse2, vUv);
     gl_FragColor = previousPassColor;//vec4( previousPassColor.rgb * waterColor, previousPassColor.a);
