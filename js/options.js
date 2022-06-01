@@ -1,122 +1,326 @@
-const optionTypes = {
-    'error': {
-        toHtml: generateError,
-        attribute: 'value'
-    },
-    'check': {
-        toHtml: generateCheck,
-        attribute: 'checked'
-    },
-    'select': {
-        toHtml: generateSelect,
-        attribute: 'value'
-    },
-    'range': {
-        toHtml: generateRange,
-        attribute: 'value'
-    },
-    'color': {
-        toHtml: generateRange,
-        attribute: 'value'
-    }
-}
-
-//for if you dont specify a type
-const typeToOption = {
-    'undefined': 'error',
-    'boolean': 'check',
-    'number': 'range',
-    'string': 'error'
-}
-
 function createElement(html){
     let element = document.createElement('template');
     element.innerHTML = html;
     return element.content.firstChild;
-
 }
 
-function generateError(option){
-    return `<p>error</p>`;
+function generateTitle(title){
+    return createElement(`<p>${title}</p>`)
 }
 
-function generateCheck(option){
-    let {data} = option;
-    return `<input class="form-check-input checkbox m-3" type="checkbox">`;
+function generateOption(option, value=option){
+    return createElement(`<option value="${value}">${option}</option>`)
 }
 
-function generateSelect(option){
-    let {data, options} = option;
-    let optionElements = '';
-    options.forEach(opt => {
-        optionElements += `<option>${opt}</option>`;
-    })
-
-    return `<select class="custom-select mt-3 text-right">
-                <option selected>${data}</option>
-                ${optionElements}
-            </select>`
+function generateLabel(value){
+    return createElement(`<label style='display:block;'>${value}</label>`)
 }
 
-function generateRange(option){
-    let {data, min, max, step} = option;
-    return `<input type="range" id="volume" name="volume" min="${min}" max="${max}" step="${step}" class="w-100" value="${data}">`;
+function generateColorPreview(){
+    return createElement(`<div class="hsl_preview" style="height:50px;width:50px;background:hsl(0, 100%, 50%);"></div>`)
 }
 
-function addValueLabel(element, type, update, describe){
-    let label = createElement(`<p>${describe(element[optionTypes[type].attribute])}</p>`);
-    let span = createElement(`<span></span>`);
-    span.appendChild(label);
-    span.appendChild(element);
-    element.onchange = e => {
-        update(element[optionTypes[type].attribute]);
-        label.innerHTML = describe(element[optionTypes[type].attribute]);
-    };
-    return span
+function generateColorBackground_H(){
+    return createElement(`<div class="hsl_h_bg" style="height:20px;background:linear-gradient(90deg, 
+        hsl(0, 100%, 50%), 
+        hsl(36, 100%, 50%), 
+        hsl(72, 100%, 50%), 
+        hsl(108, 100%, 50%), 
+        hsl(144, 100%, 50%), 
+        hsl(180, 100%, 50%), 
+        hsl(216, 100%, 50%), 
+        hsl(252, 100%, 50%), 
+        hsl(288, 100%, 50%), 
+        hsl(324, 100%, 50%), 
+        hsl(360, 100%, 50%));">
+    </div>
+    `)
 }
 
-function generateOptionDiv(option){
-    let {title, type, data, update, show, describe} = option;
-    if(!type){ type = typeToOption[typeof(data)] }
-    if(!update){ update = e => {return} }
-    if(!describe){ describe = e => e }
-    // generate the form element
-    let element = createElement(optionTypes[type].toHtml(option));
-    // link the elements value to the data
-    element.onchange = e => update(element[optionTypes[type].attribute]);
+function generateColorBackground_S(){
+    return createElement(`<div class="hsl_s_bg" style="height:20px;background:linear-gradient(90deg, 
+        hsl(0, 00%, 50%),
+        hsl(0, 100%, 50%));">
+    `)
+}
 
-    if(optionTypes[type].attribute == 'checked'){
-        element.checked = data;
+function generateColorBackground_L(){
+    return createElement(`<div class="hsl_l_bg" style="height:20px;background:linear-gradient(90deg, 
+        hsl(0, 100%, 00%),
+        hsl(0, 100%, 50%),
+        hsl(0, 100%, 100%));">
+    `)
+}
+
+function generateColorSlider(options){
+    const {className, min, max, value} = options
+    const e = createElement(`<input type="range" style="
+    margin:0px;
+    height:100%;
+    width:100%;
+    padding:0px;
+    appearance:none;
+    background:none;
+    -webkit-appearance:none;">
+    `)
+    if(className) e.classList.add(className)
+    if(min) e.min = min
+    if(max) e.max = max
+    if(value) e.value = value
+
+    return e
+    
+}
+
+function generateNumberInput(options){
+    const {className, min, max, value} = options
+    const e = createElement(`<input type="number"></input>`)
+    if(className) e.classList.add(className)
+    if(min) e.min = min
+    if(max) e.max = max
+    if(value) e.value = value
+
+    return e
+}
+
+export const generateRangeSlider = options => {
+    const {title, min, max, value, step, className, callback} = options
+    
+    let titleElement
+    if(title) titleElement =  generateTitle(title)
+    const label = generateLabel(value)
+    const slider = createElement(`<input type="range">`)
+    if(className) slider.classList.add(className)
+    if(min) slider.min = min
+    if(max) slider.max = max
+    if(value) slider.value = value
+    if(step) slider.step = step
+
+    if(callback){
+        slider.oninput = e => {
+            label.innerHTML = e.target.value
+            callback(e.target.value)
+        }
+    }else{
+        slider.oninput = e => {
+            label.innerHTML = e.target.value
+        }
     }
-    if(show){ element = addValueLabel(element, type, update, describe) }
 
-    let html = `<div>
-                    <div class="primBack row"> 
+    const newElement = createElement(`<div></div>`);
 
-                        <div class="col col-md-6 col-sm-12 col-12 p-3">
-                            <h2 class="mediumTitle pb-3">${title}</h2>
-                        </div>
+    if(titleElement) {
+        newElement.append(titleElement)
+        titleElement.append(label)
+        label.style.float = 'right'
+    }
+    newElement.append(slider)
+    
+    newElement.updateInput = value => {
+        label.innerHTML = value
+        slider.value = value
+    }
 
-                        <div class="col col-md-6 col-sm-12 col-12 p-3">
-                            <div class="form-check text-right">
-                                <span></span>
-                            </div>
-                        </div>
-                    </div>
-                <div>&nbsp;</div>
-                <div>`
-    let parentElement = createElement(html);
-    // insert the element into the span
-    parentElement.getElementsByTagName('span')[0].appendChild(element);
-
-    return parentElement;
+    return newElement
 }
 
-function generateOptions(options, elementId){
-    const parentElement = document.getElementById(elementId);
-    options.forEach(opt =>{
-        parentElement.appendChild(generateOptionDiv(opt));
+export const generateCheckbox = options => {
+    const {title, checked, showLabel = false, className, callback} = options
+    
+    let titleElement
+    if(title) titleElement =  generateTitle(title)
+    const label = generateLabel(checked)
+    if(!showLabel) label.style.display = "none"
+    const checkbox = createElement(`<input type="checkbox">`)
+    if(className) checkbox.classList.add(className)
+    if(checked) checkbox.checked = checked
+
+    if(callback){
+        checkbox.oninput = e => {
+            label.innerHTML = e.target.checked
+            callback(e.target.checked)
+        }
+    }else{
+        checkbox.oninput = e => {
+            label.innerHTML = e.target.checked
+        }
+    }
+
+    const newElement = createElement(`<div></div>`);
+
+    if(titleElement){ 
+        newElement.append(titleElement)
+        titleElement.append(checkbox)
+        checkbox.style.float = 'right'
+    }else {
+        newElement.append(checkbox)
+    }
+    newElement.append(label)
+
+    newElement.updateInput = value => {
+        label.innerHTML = value
+        checkbox.checked = value
+    }
+
+    return newElement
+}
+
+export const generateSelectInput = options => {
+    let {title, list=[], className, callback} = options
+
+    let titleElement
+    if(title) titleElement =  generateTitle(title)
+    const select = createElement(`<select></select>`)
+    if(className) select.classList.add(className)
+    for(const item of list){
+        const option = generateOption(item)
+        select.append(option)
+    }
+
+    select.onchange = e => {
+        callback(e.target.value)
+    }
+
+    const newElement = createElement(`<div></div>`);
+    if(titleElement) newElement.append(titleElement)
+    newElement.append(select)
+
+    return newElement
+}
+
+export const generateColorPicker = options => {
+    let {title, h=0, s=100, l=50, callback} = options
+
+    let titleElement
+    if(title) titleElement =  generateTitle(title)
+    const colorPreview = generateColorPreview()
+
+    const hPicker = createElement(`<div></div>`)
+    const hBackground = generateColorBackground_H()
+    const hSlider = generateColorSlider({
+        className: "hsl_h_range",
+        min: 0,
+        max: 360,
+        value: h
     })
-}
+    hBackground.append(hSlider)
+    hPicker.append(hBackground)
+    const hNumberDiv = createElement(`<div>H </div>`)
+    const hNumber = generateNumberInput({
+        className: "hsl_h",
+        min: 0,
+        max: 360,
+        value: h
+    })
+    hNumberDiv.append(hNumber)
+    hPicker.append(hNumberDiv)
 
-export {generateOptions}
+    const sPicker = createElement(`<div></div>`)
+    const sBackground = generateColorBackground_S()
+    const sSlider = generateColorSlider({
+        className: "hsl_s_range",
+        min: 0,
+        max: 100,
+        value: s
+    })
+    sBackground.append(sSlider)
+    sPicker.append(sBackground)
+    const sNumberDiv = createElement(`<div>S </div>`)
+    const sNumber = generateNumberInput({
+        className: "hsl_s",
+        min: 0,
+        max: 100,
+        value: s
+    })
+    sNumberDiv.append(sNumber)
+    sPicker.append(sNumberDiv)
+
+    const lPicker = createElement(`<div></div>`)
+    const lBackground = generateColorBackground_L()
+    const lSlider = generateColorSlider({
+        className: "hsl_l_range",
+        min: 0,
+        max: 100,
+        value: l
+    })
+    lBackground.append(lSlider)
+    lPicker.append(lBackground)
+    const lNumberDiv = createElement(`<div>L </div>`)
+    const lNumber = generateNumberInput({
+        className: "hsl_l",
+        min: 0,
+        max: 100,
+        value: l
+    })
+    lNumberDiv.append(lNumber)
+    lPicker.append(lNumberDiv)
+
+    function updateColorPreview(){
+        colorPreview.style.background = `hsl(${h}, ${s}%, ${l}%)`
+        sBackground.style.background = `linear-gradient(90deg, hsl(${h}, 0%, 50%),hsl(${h}, 100%, 50%)`
+        lBackground.style.background = `linear-gradient(90deg, hsl(${h}, 100%, 0%),hsl(${h}, 100%, 50%),hsl(${h}, 100%, 100%)`
+    }
+    updateColorPreview()
+
+    hSlider.oninput = e => {
+        h = e.target.value
+        hNumber.value = h
+        updateColorPreview()
+        callback(h, s, l)
+    }
+    hNumber.onchange = e =>{
+        h = e.target.value
+        hSlider.value = h
+        updateColorPreview()
+        callback(h, s, l)
+    }
+    sSlider.oninput = e => {
+        s = e.target.value
+        sNumber.value = s
+        updateColorPreview()
+        callback(h, s, l)
+    }
+    sNumber.onchange = e =>{
+        s = e.target.value
+        sSlider.value = s
+        updateColorPreview()
+        callback(h, s, l)
+    }
+    lSlider.oninput = e => {
+        l = e.target.value
+        lNumber.value = l
+        updateColorPreview()
+        callback(h, s, l)
+    }
+    lNumber.onchange = e =>{
+        l = e.target.value
+        lSlider.value = l
+        updateColorPreview()
+        callback(h, s, l)
+    }
+
+    const newElement = createElement(`<div></div>`);
+
+    if(titleElement) newElement.append(titleElement)
+    newElement.append(colorPreview)
+    newElement.append(hPicker)
+    newElement.append(sPicker)
+    newElement.append(lPicker)
+
+    newElement.updateInput = (_h, _s, _l) => {
+        h = _h
+        s = _s
+        l = _l
+
+        hNumber.value = h
+        hSlider.value = h
+        sNumber.value = s
+        sSlider.value = s
+        lNumber.value = l
+        lSlider.value = l
+
+        updateColorPreview()
+    }
+
+    return newElement
+}
