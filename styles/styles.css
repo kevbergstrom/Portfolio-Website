@@ -22,6 +22,9 @@
 
     --main-gradient: linear-gradient(to top, var(--text-secondary),rgba(0, 1, 78, 0.9));
     /* background-color: var(--main-bg-color); */
+
+    --project-odd: #4c4c4c;
+    --project-even: #1a1a1a;
 }
 
 @font-face {
@@ -300,7 +303,7 @@ footer {
     padding-bottom: 52px;
 }
 
-.projectBox {
+/* .projectBox {
     max-width:100%;
     width:480px;
     min-height:480px;
@@ -311,6 +314,23 @@ footer {
     box-shadow: 0 4px 4px rgba(0,0,0,0.25);
     position: relative;
     border-radius: 10px;
+} */
+
+.projectBox {
+    max-width:100%;
+    padding: 28px;
+    margin-bottom: 52px;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+    position: relative;
+}
+
+.projectBox:nth-child(even){
+    background: var(--project-even);
+}
+
+.projectBox:nth-child(odd){
+    background: var(--project-odd);
+    border: 2px solid var(--text-main);
 }
 
 .projectImg {
@@ -324,15 +344,15 @@ footer {
     margin-left:-40px;
     margin-top:-40px;
     /* filter: sepia(100%) saturate(300%) brightness(70%) hue-rotate(180deg); */
-    /* filter: brightness(50%); */
+    /* filter: brightness(50%); 
 }
 
 .imgTint {
     position:absolute;
     width:100%;
     height:100%;
-    margin-left:-40px;
-    margin-top:-40px;
+    /* margin-left:-40px;
+    margin-top:-40px; */
 }
 
 .projectBox * {
@@ -349,8 +369,12 @@ footer {
 .projectTech {
     font-family: montserratSemiBold, sans-serif;
     font-size: var(--font-size-sm);  
-    padding: 20px;
-    padding-left: 0;
+    /* border: 1px solid var(--text-secondary); */
+    padding: 6px;
+    /* padding-left: 0; */
+    /* margin-right: 20px; */
+    margin: 20px 20px 20px 0;
+    
     transition-duration: 0.2s;
 }
 
@@ -359,8 +383,9 @@ footer {
 }
 
 .projectLink {
-    color: var(--text-secondary);
-    border: 2px solid var(--text-secondary);
+    color: var(--body-secondary);
+    /* border: 2px solid var(--text-secondary); */
+    background: var(--text-secondary);
     font-family: montserratSemiBold, sans-serif;
     font-size: 20px; 
     padding: 8px;
